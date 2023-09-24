@@ -297,32 +297,32 @@ example:
 -- cb.code:
 lang: ftd
 
-\-- fastn.dependency: xkrishguptaa.github.io/config-cs-fastn
+\-- fastn.dependency: xkrishguptaa.github.io/<repo_name>
 
 -- cd.markdown:
 
-Now modify `ftd` file and import `config-cs-fastn` into `ftd` file
+Now modify `ftd` file and import `<repo_name>` into `ftd` file
 
 -- cb.code:
 lang: ftd
 
-\-- import: xkrishguptaa.github.io/config-cs-fastn
+\-- import: xkrishguptaa.github.io/<repo_name>
 
 
 -- cd.markdown:
 
-Now add `$config-cs-fastn.main` to your component, as shown in below example:
+Now add `$<repo_name>.main` to your component, as shown in below example:
 
 Copy below code snippet inside your `ftd` file, then deploy and test
 
 -- cb.code: 
 lang: ftd
 
-\-- example: This is example of types used from `config-cs-fastn`
+\-- example: This is example of types used from `<repo_name>`
 
 \-- component example:
 caption title:
-ftd.color-scheme color-scheme: $config-cs-fastn.main
+ftd.color-scheme color-scheme: $<repo_name>.main
 
 \-- ftd.text: $example.title
 role: $inherited.types.heading-hero

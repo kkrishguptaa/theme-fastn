@@ -321,3 +321,55 @@ dark: #F3D000
 base: $warning-base-
 text: $warning-text-
 border: $warning-border-
+
+-- ftd.color custom-one-:
+light: #ffffff00
+dark: #ffffff00
+
+-- ftd.color custom-two-:
+light: #ffffff00
+dark: #ffffff00
+
+-- ftd.color custom-three-:
+light: #ffffff00
+dark: #ffffff00
+
+-- ftd.color custom-four-:
+light: #ffffff00
+dark: #ffffff00
+
+-- ftd.color custom-five-:
+light: #ffffff00
+dark: #ffffff00
+
+-- ftd.color custom-six-:
+light: #ffffff00
+dark: #ffffff00
+
+-- ftd.color custom-seven-:
+light: #ffffff00
+dark: #ffffff00
+
+-- ftd.color custom-eight-:
+light: #ffffff00
+dark: #ffffff00
+
+-- ftd.color custom-nine-:
+light: #ffffff00
+dark: #ffffff00
+
+-- ftd.color custom-ten-:
+light: #ffffff00
+dark: #ffffff00
+
+-- ftd.custom-colors custom-:
+one: $custom-one-
+two: $custom-two-
+three: $custom-three-
+four: $custom-four-
+five: $custom-five-
+six: $custom-six-
+seven: $custom-seven-
+eight: $custom-eight-
+nine: $custom-nine-
+ten: $custom-ten-
