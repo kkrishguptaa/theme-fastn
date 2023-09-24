@@ -1,31 +1,29 @@
 -- import: fastn
 -- import: fastn/processors as pr
--- import: <user_name>.github.io/<repo_name>/assets
--- import: <user_name>.github.io/<repo_name>/colors
+-- import: xkrishguptaa.github.io/config-cs-fastn/assets
+-- import: xkrishguptaa.github.io/config-cs-fastn/colors
 -- import: fastn-community.github.io/color-doc/components as cp
 -- import: fastn-community.github.io/inter-typography as typo
 
 -- string figma-json:
 $processor$: pr.figma-cs-token
-;; **** replace below $ftd.default-colors with $main and remove this line ****
-variable: $ftd.default-colors
+variable: $main
 name: default-colors
 
 -- end: figma-json
 
-;; **** replace below $ftd.default-colors with $main and remove this line ****
--- ftd.color-scheme colors-data: $ftd.default-colors
+-- ftd.color-scheme colors-data: $main
 
 
 
 -- cd.package: THEME
-name: `<repo_name>`
+name: `@xkrishguptaa/config-cs-fastn`
 logo: $assets.files.static.fastn-logo.svg
-subtitle: <repo_name> : Color Scheme
+subtitle: Krish's fastn Color Scheme
 colors: $colors-data
 types: $typo.types
-document-title: <repo_name>: fastn color scheme package
-document-description: <repo_name>: fastn color scheme package
+document-title: Krish's fastn Color Scheme
+document-description: fastn color scheme for Krish's projects
 document-image: https://fastn.com/-/fastn.com/images/featured/cs/midnight-storm-cs-dark.png
 
 -- cp.components-pallete:
@@ -133,7 +131,7 @@ Mauris ullamcorper tortor sed purus interdum, fermentum efficitur est dictu.
 -- end: cp.news-block
 
 -- cp.sitemap-footer:
-copyright: Copyright © 2023 - [FifthTry.com](https://www.fifthtry.com/)
+copyright: Copyright © 2023 - [xkrishguptaa](https://github.com/xkrishguptaa)
 
 -- end: cp.component-wrap-middle
 
@@ -146,7 +144,7 @@ copyright: Copyright © 2023 - [FifthTry.com](https://www.fifthtry.com/)
 -- end: cp.components-pallete
 
 -- cd.color-scheme: 
-tagline: Adding warmth and energy to your designs with the `<repo_name>` color scheme
+tagline: Adding warmth and energy to your designs with @xkrishguptaa's color scheme
 
 -- cd.color-scheme.rightbar:
 
@@ -157,18 +155,18 @@ link: https://fastn.com/
 
 -- cd.title-with-link: Github Link
 icon: $assets.files.static.link-icon.svg
-link-text: github.com/<user_name>/<repo_name>
-link: https://github.com/<user_name>/<repo_name>
+link-text: github.com/xkrishguptaa/config-cs-fastn
+link: https://github.com/xkrishguptaa/config-cs-fastn
 
 -- cd.title-with-link: License Information
 icon: $assets.files.static.bsd-license-icon.svg
 link-text: BSD 3-Clause License
-link: https://github.com/<user_name>/<repo_name>/blob/main/LICENSE
+link: https://github.com/xkrishguptaa/config-cs-fastn/blob/main/LICENSE
 
 -- cd.title-with-link: Author Information
 icon: $assets.files.static.author-icon.svg
 link-text: Contributors
-link: https://github.com/<user_name>/<repo_name>/graphs/contributors
+link: https://github.com/xkrishguptaa/config-cs-fastn/graphs/contributors
 
 -- cd.title-with-link: Discord Channel 
 icon: $assets.files.static.discord-icon.svg
@@ -196,8 +194,7 @@ link: https://fastn.com/figma-to-fastn-cs/
 
 The colours we use in our designs can have a significant impact on the mood and
 feelings they inspire. The perfect colour palette may take your design to the
-next level, whether you're creating a website, app, or anything else. The
-`<repo_name>` colour scheme is ideal for designs that aim to portray strength,
+next level, whether you're creating a website, app, or anything else. @xkrishguptaa's colour scheme is ideal for designs that aim to portray strength,
 warmth, and growth.
 
 -- cb.code: Figma tokens json
@@ -232,7 +229,7 @@ To add color scheme to your [fastn](https://fastn.com/)
 [doc-site](https://fastn-community.github.io/doc-site/cs/). Edit your `FASTN.ftd` file and add
 color scheme dependency into it.
 
-In the below example, we are using <repo_name> color scheme.
+In the below example, we are using @xkrishguptaa's color scheme.
 
 Add color scheme dependency into your `FASTN.ftd` file as shown in below
 example:
@@ -240,24 +237,24 @@ example:
 -- cb.code:
 lang: ftd
 
-\-- fastn.dependency: <user_name>.github.io/<repo_name>
+\-- fastn.dependency: xkrishguptaa.github.io/config-cs-fastn
 
 -- cd.markdown:
 
 Now modify `FASTN/ds.ftd` module which is already added inside your `fastn`
 package.
 
-Import `<repo_name>` dependency into `FASTN/ds.ftd`
+Import `config-cs-fastn` dependency into `FASTN/ds.ftd`
 
 -- cb.code:
 lang: ftd
 
-\-- import: <user_name>.github.io/<repo_name>
+\-- import: xkrishguptaa.github.io/config-cs-fastn
 
 -- cd.markdown:
 
 Change `-- component page` `colors` property `ftd.color-scheme colors:
-$ftd.default-colors` with `ftd.color-scheme colors: $<repo_name>.main`
+$ftd.default-colors` with `ftd.color-scheme colors: $config-cs-fastn.main`
 
 replace this line of `FASTN/ds.ftd` file:
 
@@ -273,7 +270,7 @@ lang: ftd
 -- cb.code:
 lang: ftd
 
-\-- ftd.color-scheme color-scheme: $<repo_name>.main
+\-- ftd.color-scheme color-scheme: $config-cs-fastn.main
 
 
 -- cd.markdown:
@@ -300,32 +297,32 @@ example:
 -- cb.code:
 lang: ftd
 
-\-- fastn.dependency: <user_name>.github.io/<repo_name>
+\-- fastn.dependency: xkrishguptaa.github.io/config-cs-fastn
 
 -- cd.markdown:
 
-Now modify `ftd` file and import `<repo_name>` into `ftd` file
+Now modify `ftd` file and import `config-cs-fastn` into `ftd` file
 
 -- cb.code:
 lang: ftd
 
-\-- import: <user_name>.github.io/<repo_name>
+\-- import: xkrishguptaa.github.io/config-cs-fastn
 
 
 -- cd.markdown:
 
-Now add `$<repo_name>.main` to your component, as shown in below example:
+Now add `$config-cs-fastn.main` to your component, as shown in below example:
 
 Copy below code snippet inside your `ftd` file, then deploy and test
 
 -- cb.code: 
 lang: ftd
 
-\-- example: This is example of types used from `<repo_name>`
+\-- example: This is example of types used from `config-cs-fastn`
 
 \-- component example:
 caption title:
-ftd.color-scheme color-scheme: $<repo_name>.main
+ftd.color-scheme color-scheme: $config-cs-fastn.main
 
 \-- ftd.text: $example.title
 role: $inherited.types.heading-hero
@@ -335,7 +332,7 @@ color: $inherited.colors.text
 
 -- cd.markdown:
 
-Enjoy the look and feel of your website using `<repo_name>` colour scheme.
+Enjoy the look and feel of your website using @xkrishguptaa's colour scheme.
 
 -- end: cd.how-to-use-cs
 
