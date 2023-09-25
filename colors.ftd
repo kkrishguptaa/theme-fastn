@@ -1,22 +1,39 @@
+-- ftd.color accent-primary-:
+light: #233ed2
+dark: #233ed2
+
+-- ftd.color accent-secondary-:
+light: #213187
+dark: #213187
+
+-- ftd.color accent-tertiary-:
+light: #c1d5fc
+dark: #c1d5fc
+
+-- ftd.pst accent-:
+primary: $accent-primary-
+secondary: $accent-secondary-
+tertiary: $accent-tertiary-
+
 -- ftd.color base-:
-light: #F6F8FE
-dark: #202127
+light: #f0f4fe
+dark: #192052
 
 -- ftd.color step-1-:
-light: #373943
-dark: #3e404c
+light: #dce6fd
+dark: #213187
 
 -- ftd.color step-2-:
-light: #202127
-dark: #373943
+light: #c1d5fc
+dark: #2333aa
 
 -- ftd.color overlay-:
 light: rgba(0, 0, 0, 0.8)
 dark: rgba(255, 255, 255, 0.8)
 
 -- ftd.color code-:
-light: #ECF0FD
-dark: #222222
+light: #eee
+dark: #111
 
 -- ftd.background-colors background-:
 base: $base-
@@ -25,65 +42,65 @@ step-2: $step-2-
 overlay: $overlay-
 code: $code-
 
--- ftd.color border-:
-light: #202127
-dark: #FFFFFF
-
--- ftd.color border-strong-:
-light: #000000
-dark: #F6F8FE
-
 -- ftd.color text-:
-light: #202127
-dark: #D9D9D9
+light: #192052
+dark: #f0f4fe
 
 -- ftd.color text-strong-:
-light: #000000
-dark: #FFFFFF
+light: #000
+dark: #fff
+
+-- ftd.color border-:
+light: #192052
+dark: #f0f4fe
+
+-- ftd.color border-strong-:
+light: #000
+dark: #fff
 
 -- ftd.color shadow-:
-light: #1A3DC6
-dark: #1A3DC6
+light: #c1d5fc
+dark: #213187
 
 -- ftd.color scrim-:
-light: #1A3DC6
-dark: #1A3DC6
+light: #c1d5fc
+dark: #213187
 
 -- ftd.color cta-primary-base-:
-light: #264DE4
-dark: #A53006
+light: #4170f0
+dark: #4170f0
 
 -- ftd.color cta-primary-hover-:
-light: #1A3DC6
-dark: #8C2702
+light: #264de4
+dark: #264de4
 
 -- ftd.color cta-primary-pressed-:
-light: #1A3DC6
-dark: #611C03
-
--- ftd.color cta-primary-disabled-:
-light: #54639C
-dark: #FAAD7B
+light: #233ed2
+dark: #233ed2
 
 -- ftd.color cta-primary-focused-:
-light: #1A3DC6
-dark: #611C03
+light: #233ed2
+dark: #233ed2
 
 -- ftd.color cta-primary-border-:
-light: #264DE4
-dark: #A53006
+light: transparent
+dark: transparent
 
 -- ftd.color cta-primary-text-:
-light: #F6F8FE
-dark: #FEFFFF
+light: #f0f4fe
+dark: #f0f4fe
+
+-- ftd.color cta-primary-disabled-:
+light: rgba(193, 213, 252, 0.5)
+dark: rgba(193, 213, 252, 0.5)
 
 -- ftd.color cta-primary-text-disabled-:
-light: #ECF0FD
-dark: #65B693
+light: rgba(35, 62, 210, 0.5)
+dark: rgba(35, 62, 210, 0.5)
 
 -- ftd.color cta-primary-border-disabled-:
-light: #54639C
-dark: #65B693
+light: transparent
+dark: transparent
 
 -- ftd.cta-colors cta-primary-:
 base: $cta-primary-base-
@@ -97,40 +114,40 @@ text-disabled: $cta-primary-text-disabled-
 border-disabled: $cta-primary-border-disabled-
 
 -- ftd.color cta-secondary-base-:
-light: #00A86B
-dark: #EF8435
+light: #fff
+dark: #fff
 
 -- ftd.color cta-secondary-hover-:
-light: #007148
-dark: #D77730
+light: #f0f4fe
+dark: #f0f4fe
 
 -- ftd.color cta-secondary-pressed-:
-light: #007148
-dark: #BF6A2A
-
--- ftd.color cta-secondary-disabled-:
-light: #549C81
-dark: #FAD9C0
+light: #dce6fd
+dark: #dce6fd
 
 -- ftd.color cta-secondary-focused-:
-light: #00A86B
-dark: #B36328
+light: #dce6fd
+dark: #dce6fd
 
 -- ftd.color cta-secondary-border-:
-light: #00A86B
-dark: #F3A063
+light: #233ed2
+dark: #233ed2
 
 -- ftd.color cta-secondary-text-:
-light: #F6F8FE
-dark: #FFFFFF
+light: #233ed2
+dark: #233ed2
+
+-- ftd.color cta-secondary-disabled-:
+light: rgba(35, 62, 210, 0.5)
+dark: rgba(35, 62, 210, 0.5)
 
 -- ftd.color cta-secondary-text-disabled-:
-light: #ECF0FD
-dark: #65B693
+light: #fff
+dark: #fff
 
 -- ftd.color cta-secondary-border-disabled-:
-light: #549C81
-dark: #65B693
+light: rgba(35, 62, 210, 0.5)
+dark: rgba(35, 62, 210, 0.5)
 
 -- ftd.cta-colors cta-secondary-:
 base: $cta-secondary-base-
@@ -144,40 +161,40 @@ text-disabled: $cta-secondary-text-disabled-
 border-disabled: $cta-secondary-border-disabled-
 
 -- ftd.color cta-tertiary-base-:
-light: #FE630C
-dark: #EBE8E5
-
--- ftd.color cta-tertiary-hover-:
-light: #D14B00
-dark: #D4D1CE
-
--- ftd.color cta-tertiary-pressed-:
-light: #D14B00
-dark: #BCBAB7
-
--- ftd.color cta-tertiary-disabled-:
-light: #9C6E54
-dark: #F9F8F7
-
--- ftd.color cta-tertiary-focused-:
-light: #D14B00
-dark: #B0AEAC
-
--- ftd.color cta-tertiary-border-:
-light: #FE630C
-dark: #B0AEAC
+light: rgb(38, 77, 228)
+dark: rgb(38, 77, 228)
 
 -- ftd.color cta-tertiary-text-:
-light: #F6F8FE
-dark: #333333
+light: #fff
+dark: #fff
+
+-- ftd.color cta-tertiary-border-:
+light: transparent
+dark: transparent
+
+-- ftd.color cta-tertiary-hover-:
+light: rgb(35, 62, 210)
+dark: rgb(35, 62, 210)
+
+-- ftd.color cta-tertiary-pressed-:
+light: rgb(38, 77, 228)
+dark: rgb(38, 77, 228)
+
+-- ftd.color cta-tertiary-focused-:
+light: rgb(38, 77, 228)
+dark: rgb(38, 77, 228)
+
+-- ftd.color cta-tertiary-disabled-:
+light: rgb(220, 230, 253)
+dark: rgb(220, 230, 253)
 
 -- ftd.color cta-tertiary-text-disabled-:
-light: #ECF0FD
-dark: #65B693
+light: rgb(35, 62, 210)
+dark: rgb(35, 62, 210)
 
 -- ftd.color cta-tertiary-border-disabled-:
-light: #9C6E54
-dark: #65B693
+light: transparent
+dark: transparent
 
 -- ftd.cta-colors cta-tertiary-:
 base: $cta-tertiary-base-
@@ -191,40 +208,40 @@ text-disabled: $cta-tertiary-text-disabled-
 border-disabled: $cta-tertiary-border-disabled-
 
 -- ftd.color cta-danger-base-:
-light: #ED4245
-dark: #F9E4E1
-
--- ftd.color cta-danger-hover-:
-light: #CF1316
-dark: #F1BDB6
-
--- ftd.color cta-danger-pressed-:
-light: #CF1316
-dark: #D46A63
-
--- ftd.color cta-danger-disabled-:
-light: #9C5455
-dark: #FAECEB
-
--- ftd.color cta-danger-focused-:
-light: #CF1316
-dark: #D97973
+light: #fb384a
+dark: #fb384a
 
 -- ftd.color cta-danger-border-:
-light: #ED4245
-dark: #E9968C
+light: transparent
+dark: transparent
 
 -- ftd.color cta-danger-text-:
-light: #F6F8FE
-dark: #D84836
+light: #fff
+dark: #fff
+
+-- ftd.color cta-danger-hover-:
+light: #e9192d
+dark: #e9192d
+
+-- ftd.color cta-danger-pressed-:
+light: #c41122
+dark: #c41122
+
+-- ftd.color cta-danger-focused-:
+light: #c41122
+dark: #c41122
+
+-- ftd.color cta-danger-disabled-:
+light: rgba(255, 198, 203, 0.5)
+dark: rgba(255, 198, 203, 0.5)
 
 -- ftd.color cta-danger-text-disabled-:
-light: #ECF0FD
-dark: #65B693
+light: #fff
+dark: #fff
 
 -- ftd.color cta-danger-border-disabled-:
-light: #9C5455
-dark: #65B693
+light: rgba(196, 17, 34, 0.5)
+dark: rgba(196, 17, 34, 0.5)
 
 -- ftd.cta-colors cta-danger-:
 base: $cta-danger-base-
@@ -237,34 +254,17 @@ text: $cta-danger-text-
 text-disabled: $cta-danger-text-disabled-
 border-disabled: $cta-danger-border-disabled-
 
--- ftd.color accent-primary-:
-light: #264DE4
-dark: #A0B3FF
-
--- ftd.color accent-secondary-:
-light: #00A86B
-dark: #2BFDB1
-
--- ftd.color accent-tertiary-:
-light: #FE630C
-dark: #FC9256
-
--- ftd.pst accent-:
-primary: $accent-primary-
-secondary: $accent-secondary-
-tertiary: $accent-tertiary-
-
 -- ftd.color error-base-:
-light: #9C5455
-dark: #9C5455
+light: transparent
+dark: transparent
 
 -- ftd.color error-text-:
-light: #F6F8FE
-dark: #F6F8FE
+light: #f0f4fe
+dark: #192052
 
 -- ftd.color error-border-:
-light: #9C5455
-dark: #9C5455
+light: #9B111E
+dark: #9B111E
 
 -- ftd.btb error-btb-:
 base: $error-base-
@@ -272,16 +272,16 @@ text: $error-text-
 border: $error-border-
 
 -- ftd.color success-base-:
-light: #549C81
-dark: #549C81
+light: transparent
+dark: transparent
 
 -- ftd.color success-text-:
-light: #F6F8FE
-dark: #F6F8FE
+light: #f0f4fe
+dark: #192052
 
 -- ftd.color success-border-:
-light: #549C81
-dark: #549C81
+light: #00A86B
+dark: #00A86B
 
 -- ftd.btb success-btb-:
 base: $success-base-
@@ -289,16 +289,16 @@ text: $success-text-
 border: $success-border-
 
 -- ftd.color info-base-:
-light: #54639C
-dark: #54639C
+light: transparent
+dark: transparent
 
 -- ftd.color info-text-:
-light: #F6F8FE
-dark: #F6F8FE
+light: #f0f4fe
+dark: #192052
 
 -- ftd.color info-border-:
-light: #54639C
-dark: #54639C
+light: #00A86B
+dark: #00A86B
 
 -- ftd.btb info-btb-:
 base: $info-base-
@@ -306,16 +306,16 @@ text: $info-text-
 border: $info-border-
 
 -- ftd.color warning-base-:
-light: #ffffff00
-dark: #ffffff00
+light: transparent
+dark: transparent
 
 -- ftd.color warning-text-:
-light: #202127
-dark: #F6F8FE
+light: #f0f4fe
+dark: #192052
 
 -- ftd.color warning-border-:
-light: #F3D000
-dark: #F3D000
+light: #FFDF00
+dark: #FFDF00
 
 -- ftd.btb warning-btb-:
 base: $warning-base-
@@ -323,44 +323,44 @@ text: $warning-text-
 border: $warning-border-
 
 -- ftd.color custom-one-:
-light: #ffffff00
-dark: #ffffff00
+light: transparent
+dark: transparent
 
 -- ftd.color custom-two-:
-light: #ffffff00
-dark: #ffffff00
+light: transparent
+dark: transparent
 
 -- ftd.color custom-three-:
-light: #ffffff00
-dark: #ffffff00
+light: transparent
+dark: transparent
 
 -- ftd.color custom-four-:
-light: #ffffff00
-dark: #ffffff00
+light: transparent
+dark: transparent
 
 -- ftd.color custom-five-:
-light: #ffffff00
-dark: #ffffff00
+light: transparent
+dark: transparent
 
 -- ftd.color custom-six-:
-light: #ffffff00
-dark: #ffffff00
+light: transparent
+dark: transparent
 
 -- ftd.color custom-seven-:
-light: #ffffff00
-dark: #ffffff00
+light: transparent
+dark: transparent
 
 -- ftd.color custom-eight-:
-light: #ffffff00
-dark: #ffffff00
+light: transparent
+dark: transparent
 
 -- ftd.color custom-nine-:
-light: #ffffff00
-dark: #ffffff00
+light: transparent
+dark: transparent
 
 -- ftd.color custom-ten-:
-light: #ffffff00
-dark: #ffffff00
+light: transparent
+dark: transparent
 
 -- ftd.custom-colors custom-:
 one: $custom-one-
