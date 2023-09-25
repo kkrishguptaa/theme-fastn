@@ -1,9 +1,9 @@
 -- import: fastn
 -- import: fastn/processors as pr
--- import: xkrishguptaa.github.io/config-cs-fastn/assets
--- import: xkrishguptaa.github.io/config-cs-fastn/colors
+-- import: xkrishguptaa.github.io/theme-fastn/assets
+-- import: xkrishguptaa.github.io/theme-fastn/colors
 -- import: fastn-community.github.io/color-doc/components as cp
--- import: fastn-community.github.io/inter-typography as typo
+-- import: fastn-community.github.io/lobster-typography as typography
 
 -- string figma-json:
 $processor$: pr.figma-cs-token
@@ -17,14 +17,14 @@ name: default-colors
 
 
 -- cd.package: THEME
-name: `@xkrishguptaa/config-cs-fastn`
-logo: $assets.files.static.fastn-logo.svg
+name: `@xkrishguptaa/theme-fastn`
+logo: https://github.com/xkrishguptaa.png
 subtitle: Krish's fastn Color Scheme
 colors: $colors-data
-types: $typo.types
+types: $typography.types
 document-title: Krish's fastn Color Scheme
 document-description: fastn color scheme for Krish's projects
-document-image: https://fastn.com/-/fastn.com/images/featured/cs/midnight-storm-cs-dark.png
+document-image: https://github.com/xkrishguptaa/theme-fastn/assets/135469703/b508766a-e764-4573-930c-949c64c6763e
 
 -- cp.components-pallete:
 
@@ -155,18 +155,18 @@ link: https://fastn.com/
 
 -- cd.title-with-link: Github Link
 icon: $assets.files.static.link-icon.svg
-link-text: github.com/xkrishguptaa/config-cs-fastn
-link: https://github.com/xkrishguptaa/config-cs-fastn
+link-text: github.com/xkrishguptaa/theme-fastn
+link: https://github.com/xkrishguptaa/theme-fastn
 
 -- cd.title-with-link: License Information
 icon: $assets.files.static.bsd-license-icon.svg
 link-text: BSD 3-Clause License
-link: https://github.com/xkrishguptaa/config-cs-fastn/blob/main/LICENSE
+link: https://github.com/xkrishguptaa/theme-fastn/blob/main/LICENSE
 
 -- cd.title-with-link: Author Information
 icon: $assets.files.static.author-icon.svg
 link-text: Contributors
-link: https://github.com/xkrishguptaa/config-cs-fastn/graphs/contributors
+link: https://github.com/xkrishguptaa/theme-fastn/graphs/contributors
 
 -- cd.title-with-link: Discord Channel 
 icon: $assets.files.static.discord-icon.svg
@@ -237,24 +237,24 @@ example:
 -- cb.code:
 lang: ftd
 
-\-- fastn.dependency: xkrishguptaa.github.io/config-cs-fastn
+\-- fastn.dependency: xkrishguptaa.github.io/theme-fastn
 
 -- cd.markdown:
 
 Now modify `FASTN/ds.ftd` module which is already added inside your `fastn`
 package.
 
-Import `config-cs-fastn` dependency into `FASTN/ds.ftd`
+Import `theme-fastn` dependency into `FASTN/ds.ftd`
 
 -- cb.code:
 lang: ftd
 
-\-- import: xkrishguptaa.github.io/config-cs-fastn
+\-- import: xkrishguptaa.github.io/theme-fastn
 
 -- cd.markdown:
 
 Change `-- component page` `colors` property `ftd.color-scheme colors:
-$ftd.default-colors` with `ftd.color-scheme colors: $config-cs-fastn.main`
+$ftd.default-colors` with `ftd.color-scheme colors: $theme-fastn.main`
 
 replace this line of `FASTN/ds.ftd` file:
 
@@ -270,7 +270,7 @@ lang: ftd
 -- cb.code:
 lang: ftd
 
-\-- ftd.color-scheme color-scheme: $config-cs-fastn.main
+\-- ftd.color-scheme color-scheme: $theme-fastn.main
 
 
 -- cd.markdown:
@@ -297,32 +297,32 @@ example:
 -- cb.code:
 lang: ftd
 
-\-- fastn.dependency: xkrishguptaa.github.io/<repo_name>
+\-- fastn.dependency: xkrishguptaa.github.io/theme-fastn
 
 -- cd.markdown:
 
-Now modify `ftd` file and import `<repo_name>` into `ftd` file
+Now modify `ftd` file and import `theme-fastn` into `ftd` file
 
 -- cb.code:
 lang: ftd
 
-\-- import: xkrishguptaa.github.io/<repo_name>
+\-- import: xkrishguptaa.github.io/theme-fastn
 
 
 -- cd.markdown:
 
-Now add `$<repo_name>.main` to your component, as shown in below example:
+Now add `$theme-fastn.main` to your component, as shown in below example:
 
 Copy below code snippet inside your `ftd` file, then deploy and test
 
 -- cb.code: 
 lang: ftd
 
-\-- example: This is example of types used from `<repo_name>`
+\-- example: This is example of types used from `theme-fastn`
 
 \-- component example:
 caption title:
-ftd.color-scheme color-scheme: $<repo_name>.main
+ftd.color-scheme color-scheme: $theme-fastn.main
 
 \-- ftd.text: $example.title
 role: $inherited.types.heading-hero
