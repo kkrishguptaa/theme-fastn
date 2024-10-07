@@ -200,6 +200,15 @@ const fastn = (function (fastn) {
             return this.#value;
         }
 
+        forLoop(root, dom_constructor) {
+            if ((!this.#value) instanceof MutableList) {
+                throw new Error(
+                    "`forLoop` can only run for MutableList type object",
+                );
+            }
+            this.#value.forLoop(root, dom_constructor);
+        }
+
         setWithoutUpdate(value) {
             if (this.#old_closure) {
                 this.#value.removeClosure(this.#old_closure);
@@ -213,6 +222,11 @@ const fastn = (function (fastn) {
                 // The `this.#value.replace(value);` will replace the value of
                 // `orange-green` with `{light: red, dark: red}`
                 this.#value = value;
+            } else if (this.#value instanceof MutableList) {
+                if (value instanceof fastn.mutableClass) {
+                    value = value.get();
+                }
+                this.#value.set(value);
             } else {
                 this.#value = value;
             }
@@ -356,6 +370,14 @@ const fastn = (function (fastn) {
             return this.#list;
         }
 
+        contains(item) {
+            return this.#list.some(
+                (obj) =>
+                    fastn_utils.getFlattenStaticValue(obj.item) ===
+                    fastn_utils.getFlattenStaticValue(item),
+            );
+        }
+
         getLength() {
             return this.#list.length;
         }
@@ -383,6 +405,7 @@ const fastn = (function (fastn) {
                     this.#list.push(list[i]);
                 }
 
+                this.deleteEmptyWatchers();
                 for (let i in this.#watchers) {
                     this.#watchers[i].createAllNode();
                 }
@@ -392,6 +415,50 @@ const fastn = (function (fastn) {
             }
 
             this.#closures.forEach((closure) => closure.update());
+        }
+
+        // The watcher sometimes doesn't get deleted when the list is wrapped
+        // inside some ancestor DOM with if condition,
+        // so when if condition is unsatisfied the DOM gets deleted without removing
+        // the watcher from list as this list is not direct dependency of the if condition.
+        // Consider the case:
+        // -- ftd.column:
+        // if: { open }
+        //
+        // -- show-list: $item
+        // for: $item in $list
+        //
+        // -- end: ftd.column
+        //
+        // So when the if condition is satisfied the list adds the watcher for show-list
+        // but when the if condition is unsatisfied, the watcher doesn't get removed.
+        // though the DOM `show-list` gets deleted.
+        // This function removes all such watchers
+        // Without this function, the workaround would have been:
+        // -- ftd.column:
+        // if: { open }
+        //
+        // -- show-list: $item
+        // for: $item in *$list ;; clones the lists
+        //
+        // -- end: ftd.column
+        deleteEmptyWatchers() {
+            this.#watchers = this.#watchers.filter((w) => {
+                let to_delete = false;
+                if (!!w.getParent) {
+                    let parent = w.getParent();
+                    while (!!parent && !!parent.getParent) {
+                        parent = parent.getParent();
+                    }
+                    if (!parent) {
+                        to_delete = true;
+                    }
+                }
+                if (to_delete) {
+                    w.deleteAllNode();
+                }
+                return !to_delete;
+            });
         }
 
         insertAt(index, value) {
@@ -406,6 +473,7 @@ const fastn = (function (fastn) {
                 this.#list[i].index.set(i);
             }
 
+            this.deleteEmptyWatchers();
             for (let i in this.#watchers) {
                 this.#watchers[i].createNode(index);
             }
@@ -424,6 +492,7 @@ const fastn = (function (fastn) {
                 this.#list[i].index.set(i);
             }
 
+            this.deleteEmptyWatchers();
             for (let i in this.#watchers) {
                 let forLoop = this.#watchers[i];
                 forLoop.deleteNode(index);
@@ -433,6 +502,8 @@ const fastn = (function (fastn) {
 
         clearAll() {
             this.#list = [];
+
+            this.deleteEmptyWatchers();
             for (let i in this.#watchers) {
                 this.#watchers[i].deleteAllNode();
             }
@@ -561,10 +632,10 @@ const fastn = (function (fastn) {
                 if (!(value instanceof RecordInstance)) {
                     value = new RecordInstance(value);
                 }
-
-                let fields = {};
                 for (let key in value.#fields) {
-                    this.#fields[key].set(value.#fields[key]);
+                    if (this.#fields[key]) {
+                        this.#fields[key].set(value.#fields[key]);
+                    }
                 }
             } else if (this.#fields[key] === undefined) {
                 this.#fields[key] = fastn.mutable(null);
@@ -968,6 +1039,7 @@ fastn_dom.PropertyKind = {
     TextInputValue: 122,
     FetchPriority: 123,
     Download: 124,
+    SrcDoc: 125,
 };
 
 fastn_dom.Loading = {
@@ -3085,6 +3157,8 @@ class Node2 {
             this.attachAttribute("loading", staticValue);
         } else if (kind === fastn_dom.PropertyKind.Src) {
             this.attachAttribute("src", staticValue);
+        } else if (kind === fastn_dom.PropertyKind.SrcDoc) {
+            this.attachAttribute("srcdoc", staticValue);
         } else if (kind === fastn_dom.PropertyKind.ImageSrc) {
             this.attachImageSrcClosures(staticValue);
             ftd.dark_mode.addClosure(
@@ -3798,11 +3872,32 @@ let fastn_utils = {
                 let fields = {};
                 for (let objKey in obj) {
                     fields[objKey] = fastn_utils.staticToMutables(obj[objKey]);
+                    if (fields[objKey] instanceof fastn.mutableClass) {
+                        fields[objKey] = fields[objKey].get();
+                    }
                 }
                 return fastn.recordInstance(fields);
             } else {
                 return fastn.mutable(obj);
             }
+        } else {
+            return obj;
+        }
+    },
+    mutableToStaticValue(obj) {
+        if (obj instanceof fastn.mutableClass) {
+            return this.mutableToStaticValue(obj.get());
+        } else if (obj instanceof fastn.mutableListClass) {
+            let list = obj.getList();
+            return list.map((func) => this.mutableToStaticValue(func.item));
+        } else if (obj instanceof fastn.recordInstanceClass) {
+            let fields = obj.getAllFields();
+            return Object.fromEntries(
+                Object.entries(fields).map(([k, v]) => [
+                    k,
+                    this.mutableToStaticValue(v),
+                ]),
+            );
         } else {
             return obj;
         }
@@ -4931,6 +5026,9 @@ const ftd = (function () {
         list.clearAll();
     };
     exports.clear = exports.clear_all;
+    exports.list_contains = function (list, item) {
+        return list.contains(item);
+    };
     exports.set_list = function (list, value) {
         list.set(value);
     };
@@ -5134,7 +5232,8 @@ const ftd = (function () {
             .replaceAll(",", "$")
             .replaceAll("\\", "/")
             .replaceAll("/", "_")
-            .replaceAll(".", "_");
+            .replaceAll(".", "_")
+            .replaceAll("~", "_");
     }
 
     function getDocNameAndRemaining(s) {
@@ -5200,9 +5299,10 @@ const ftd = (function () {
         const value = global[name];
         if (isMutable(value)) {
             if (remaining) {
-                return value.get(remaining);
+                let obj = value.get(remaining);
+                return fastn_utils.mutableToStaticValue(obj);
             } else {
-                return value.get();
+                return fastn_utils.mutableToStaticValue(value);
             }
         } else {
             return value;
